@@ -20,9 +20,11 @@ class App extends Component{
     this.setState({searchField:e.target.value})
   }
   componentDidMount(){
-    fetch('https://jsonplaceholder.typicode.com/users')
+    const url = "https://jsonplaceholder.typicode.com/users"; 
+    fetch(url)
     .then(response=>response.json())
     .then(users=>this.setState({Monsters:users}))
+    .catch(() => console.log("Can’t access " + url + " response. Blocked by browser?"))
    
   }
   render(){
