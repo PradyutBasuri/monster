@@ -20,9 +20,9 @@ class App extends Component{
     this.setState({searchField:e.target.value})
   }
   componentDidMount(){
-    const proxyurl = "https://cors-anywhere.herokuapp.com/";
-    const url = "https://jsonplaceholder.typicode.com/users"; 
-    fetch(proxyurl + url)
+    
+    const url = ""; 
+    fetch("https://jsonplaceholder.typicode.com/users",{'mode': 'no-cors'})
     .then(response=>response.json())
     .then(users=>this.setState({Monsters:users}))
     .catch(() => console.log("Can’t access " + url + " response. Blocked by browser?"))
